@@ -1,10 +1,10 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: darkslategray; overflow-x: hidden; background: linear-gradient(135deg, slateblue 0%, mediumpurple 100%); min-height: 100vh; position: relative; }
 
-body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.4) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 50%), radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.3) 0%, transparent 50%); z-index: -2; animation: float 6s ease-in-out infinite; }
+body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 20% 80%, rgba(slateblue, 0.4) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(white, 0.15) 0%, transparent 50%), radial-gradient(circle at 40% 40%, rgba(slateblue, 0.3) 0%, transparent 50%); z-index: -2; animation: float 6s ease-in-out infinite; }
 
 
-.navbar { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 1000; box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); }
+.navbar { position: fixed; top: 0; left: 0; width: 100%; background: rgba(white, 0.95); backdrop-filter: blur(10px); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 1000; box-shadow: 0 2px 20px rgba(black, 0.1); }
 
 .hamburger-menu { display: flex; flex-direction: column; cursor: pointer; padding: 5px; transition: all 0.3s ease; }
 .hamburger-line { width: 25px; height: 3px; background: slateblue; margin: 3px 0; transition: all 0.3s ease; border-radius: 2px; }
@@ -74,8 +74,8 @@ body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; heigh
     z-index: 1;
 }
 
-.input-group input { width: 100%; padding: 0.8rem 0.8rem 0.8rem 2.5rem; border: 2px solid lightgray; border-radius: 10px; font-size: 0.9rem; transition: all 0.3s ease; background: rgba(255, 255, 255, 0.9); }
-.input-group input:focus { border-color: slateblue; box-shadow: 0 0 0 3px rgba(106, 126, 234, 0.2), 0 0 20px rgba(106, 126, 234, 0.1); transform: translateY(-1px); }
+.input-group input { width: 100%; padding: 0.8rem 0.8rem 0.8rem 2.5rem; border: 2px solid lightgray; border-radius: 10px; font-size: 0.9rem; transition: all 0.3s ease; background: rgba(white, 0.9); }
+.input-group input:focus { border-color: slateblue; box-shadow: 0 0 0 3px rgba(slateblue, 0.2), 0 0 20px rgba(slateblue, 0.1); transform: translateY(-1px); }
 
 .input-group input:focus {
     outline: none;
