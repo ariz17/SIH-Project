@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Timetable Optimizer - Higher Education</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </div>
+        
+        <div class="nav-logo">
+            <i class="fas fa-calendar-alt"></i>
+            <span>TimeTable Pro</span>
+        </div>
+        
+        <div class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Title Section -->
+        <div class="title-section">
+            <h1 class="main-title">Smart Timetable Optimization System</h1>
+            <p class="subtitle">Intelligent Class Scheduling for Higher Education Institutions</p>
+        </div>
+
+        <!-- Login Container -->
+        <div class="login-container">
+            <!-- Login Form -->
+            <div class="login-box" id="loginBox">
+                <div class="login-header">
+                    <i class="fas fa-user-shield"></i>
+                    <h2>Authorized Access</h2>
+                    <p>Login to manage and optimize timetables</p>
+                </div>
+                
+                <form class="login-form" id="loginForm">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="username" placeholder="Username" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" placeholder="Password" required>
+                        <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+                    </div>
+                    
+                    <label class="remember-me">
+                        <input type="checkbox" id="rememberMe">
+                        <span class="checkmark"></span>
+                        Remember me
+                    </label>
+                    
+                    <button type="submit" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Login to Dashboard
+                    </button>
+                </form>
+                
+                <div class="login-footer">
+                    <p>Need access? <a href="#" id="signupLink" class="signup-link">Request Account</a></p>
+                </div>
+            </div>
+
+            <!-- Signup Form -->
+            <div class="login-box signup-box" id="signupBox" style="display: none;">
+                <div class="login-header">
+                    <i class="fas fa-user-plus"></i>
+                    <h2>Request Access</h2>
+                    <p>Submit request for timetable system access</p>
+                </div>
+                
+                <form class="login-form" id="signupForm">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="signupName" placeholder="Full Name" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="signupEmail" placeholder="Email Address" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-building"></i>
+                        <select id="signupDepartment" required>
+                            <option value="">Select Department</option>
+                            <option value="cs">Computer Science</option>
+                            <option value="me">Mechanical Engineering</option>
+                            <option value="ee">Electrical Engineering</option>
+                            <option value="ec">Electronics & Communication</option>
+                            <option value="ce">Civil Engineering</option>
+                            <option value="admin">Administration</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-user-tag"></i>
+                        <select id="signupRole" required>
+                            <option value="">Select Role</option>
+                            <option value="faculty">Faculty Member</option>
+                            <option value="hod">Head of Department</option>
+                            <option value="admin">Administrator</option>
+                            <option value="coordinator">Timetable Coordinator</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-id-card"></i>
+                        <input type="text" id="signupEmployeeId" placeholder="Employee ID" required>
+                    </div>
+                    
+                    
+                    <button type="submit" class="login-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Submit Request
+                    </button>
+                </form>
+                
+                <div class="login-footer">
+                    <p>Already have access? <a href="#" id="loginLink" class="signup-link">Login Here</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Preview -->
+        <div class="features-preview">
+            <div class="feature-card">
+                <i class="fas fa-calendar-check"></i>
+                <h3>Automated Scheduling</h3>
+                <p>AI-powered optimization for conflict-free timetables</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-users"></i>
+                <h3>Faculty Management</h3>
+                <p>Efficient workload distribution and availability tracking</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-building"></i>
+                <h3>Resource Optimization</h3>
+                <p>Maximize classroom and laboratory utilization</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Analytics & Reports</h3>
+                <p>Comprehensive insights and performance metrics</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Smart Timetable Optimizer. Designed for Higher Education Excellence.</p>
+            <div class="footer-links">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+                <a href="#support">Support</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

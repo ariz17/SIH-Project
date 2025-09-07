@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - TimeTable Pro</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo"><i class="fas fa-calendar-alt"></i><span>TimeTable Pro</span></div>
+        <ul class="menu">
+            <li><a href="#dashboard" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="#create"><i class="fas fa-plus"></i> Create</a></li>
+            <li><a href="#view"><i class="fas fa-table"></i> View</a></li>
+            <li><a href="#faculty"><i class="fas fa-users"></i> Faculty</a></li>
+            <li><a href="#resources"><i class="fas fa-building"></i> Resources</a></li>
+            <li><a href="#users"><i class="fas fa-user-cog"></i> Users</a></li>
+        </ul>
+        <button class="logout" onclick="window.location.href='index.html'"><i class="fas fa-sign-out-alt"></i> Logout</button>
+    </nav>
+    <main class="main">
+        <header class="header"><h1>Dashboard</h1><div class="user">Admin User</div></header>
+        <div class="content">
+            <section id="dashboard" class="section active">
+                <div class="stats">
+                    <div class="stat"><i class="fas fa-calendar"></i><h3>25</h3><p>Active Timetables</p></div>
+                    <div class="stat"><i class="fas fa-users"></i><h3>125</h3><p>Total Faculty</p></div>
+                    <div class="stat"><i class="fas fa-building"></i><h3>45</h3><p>Classrooms</p></div>
+                    <div class="stat"><i class="fas fa-graduation-cap"></i><h3>2,850</h3><p>Students</p></div>
+                </div>
+                <div class="cards">
+                    <div class="card">
+                        <h3>Recent Timetables</h3>
+                        <div class="item">CSE Sem 5 <span class="badge green">Active</span></div>
+                        <div class="item">EC Sem 3 <span class="badge yellow">Review</span></div>
+                        <div class="item">ME Sem 7 <span class="badge green">Active</span></div>
+                    </div>
+                    <div class="card">
+                        <h3>Quick Actions</h3>
+                        <button onclick="showSection('create')">Create Timetable</button>
+                        <button onclick="showSection('faculty')">Add Faculty</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="create" class="section">
+                <h2>Create Timetable</h2>
+                <form class="form">
+                    <div class="row">
+                        <select required><option>Department</option><option>CSE</option><option>EC</option><option>EE</option><option>ME</option><option>Civil</option></select>
+                        <select required><option>Semester</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select>
+                    </div>
+                    <div class="row">
+                        <input type="number" placeholder="Batches" min="1" required>
+                        <input type="number" placeholder="Max Classes/Day" min="4" max="8" value="6" required>
+                    </div>
+                    <div class="subject-row">
+                        <input type="text" placeholder="Subject" required>
+                        <input type="number" placeholder="Classes/Week" min="1" max="7" required>
+                        <select><option>Theory</option><option>Practical</option></select>
+                    </div>
+                    <button type="button" onclick="addSubject()">+ Add Subject</button>
+                    <div class="actions">
+                        <button type="button">Save Draft</button>
+                        <button type="submit">Generate</button>
+                    </div>
+                </form>
+            </section>
+
+            <section id="view" class="section">
+                <h2>View Timetables</h2>
+                <div class="filters">
+                    <select><option>All Departments</option><option>CSE</option><option>EC</option><option>EE</option><option>ME</option><option>Civil</option></select>
+                    <select><option>All Status</option><option>Active</option><option>Review</option><option>Draft</option></select>
+                </div>
+                <div class="timetable-grid">
+                    <div class="timetable-card">
+                        <h4>CSE Sem 5</h4>
+                        <p>Batch A & B</p>
+                        <span class="badge green">Active</span>
+                        <div class="actions">
+                            <button class="btn-small">View</button>
+                            <button class="btn-small">Edit</button>
+                            <button class="btn-small red">Delete</button>
+                        </div>
+                    </div>
+                    <div class="timetable-card">
+                        <h4>EC Sem 3</h4>
+                        <p>Batch A</p>
+                        <span class="badge yellow">Review</span>
+                        <div class="actions">
+                            <button class="btn-small">View</button>
+                            <button class="btn-small">Edit</button>
+                            <button class="btn-small red">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="faculty" class="section">
+                <h2>Faculty Management</h2>
+                <div class="faculty-actions">
+                    <button>Add Faculty</button>
+                    <select><option>All Departments</option><option>CSE</option><option>EC</option><option>EE</option><option>ME</option><option>Civil</option></select>
+                </div>
+                <div class="faculty-list">
+                    <div class="faculty-card">
+                        <h4>Dr. Pooja Rani</h4>
+                        <p>CSE | Professor</p>
+                        <div class="subjects">Data Structures, Algorithms</div>
+                        <div class="actions">
+                            <button class="btn-small">Edit</button>
+                            <button class="btn-small red">Remove</button>
+                        </div>
+                    </div>
+                    <div class="faculty-card">
+                        <h4>Dr. Anurag Srivastava</h4>
+                        <p>EC | Associate Professor</p>
+                        <div class="subjects">Digital Electronics</div>
+                        <div class="actions">
+                            <button class="btn-small">Edit</button>
+                            <button class="btn-small red">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="resources" class="section">
+                <h2>Resources</h2>
+                <div class="resource-actions">
+                    <button>Add Room</button>
+                    <select><option>All Buildings</option><option>Block A</option><option>Block B</option><option>Lab Block</option></select>
+                </div>
+                <div class="grid">
+                    <div class="resource-card">
+                        <h3>Room A-101</h3>
+                        <p>Capacity: 60</p>
+                        <span class="badge green">Available</span>
+                        <div class="actions">
+                            <button class="btn-small">Edit</button>
+                            <button class="btn-small red">Delete</button>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <h3>CSE Lab</h3>
+                        <p>Capacity: 40</p>
+                        <span class="badge yellow">Occupied</span>
+                        <div class="actions">
+                            <button class="btn-small">Edit</button>
+                            <button class="btn-small red">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="users" class="section">
+                <h2>Users</h2>
+                <div class="user-actions">
+                    <button>Add User</button>
+                    <select><option>All Roles</option><option>Admin</option><option>Faculty</option><option>Student</option></select>
+                </div>
+                <div class="user-list">
+                    <div class="user-item">
+                        <div class="user-info">
+                            <h4>Dr. Pooja Rani</h4>
+                            <p>Faculty | CSE</p>
+                            <small>pooja@college.edu</small>
+                        </div>
+                        <span class="badge green">Active</span>
+                        <div class="actions">
+                            <button class="btn-small">Edit</button>
+                            <button class="btn-small red">Remove</button>
+                        </div>
+                    </div>
+                    <div class="user-item">
+                        <div class="user-info">
+                            <h4>Admin User</h4>
+                            <p>Administrator</p>
+                            <small>admin@college.edu</small>
+                        </div>
+                        <span class="badge purple">Admin</span>
+                        <div class="actions">
+                            <button class="btn-small">Edit</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        function showSection(id) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.menu a').forEach(a => a.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            document.querySelector(`[href="#${id}"]`).classList.add('active');
+        }
+        
+        function addSubject() {
+            const container = document.querySelector('.subject-row').parentNode;
+            const newRow = document.querySelector('.subject-row').cloneNode(true);
+            newRow.querySelectorAll('input').forEach(input => input.value = '');
+            container.insertBefore(newRow, container.querySelector('button'));
+        }
+        
+        document.querySelectorAll('.menu a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                showSection(link.getAttribute('href').substring(1));
+            });
+        });
+        
+    </script>
+</body>
+</html>
