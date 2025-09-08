@@ -73,9 +73,9 @@ loginForm.addEventListener('submit', (e) => {
                 localStorage.setItem('rememberUser', username);
             }
             
-            // Redirect to dashboard (replace with actual dashboard URL)
+            // Redirect to selection page
             setTimeout(() => {
-                window.location.href = 'dashboard.html';
+                window.location.href = 'selection.html';
             }, 2000);
         } else {
             showNotification('Invalid credentials. Please try again.', 'error');
@@ -223,138 +223,5 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Add floating animation to feature cards
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
-        }
-    });
-}, observerOptions);
 
-// Observe feature cards
-document.addEventListener('DOMContentLoaded', () => {
-    const featureCards = document.querySelectorAll('.feature-card');
-    featureCards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.2}s`;
-        observer.observe(card);
-    });
-});
-
-// Input focus effects
-document.querySelectorAll('.input-group input').forEach(input => {
-    input.addEventListener('focus', function() {
-        this.parentElement.classList.add('focused');
-    });
-    
-    input.addEventListener('blur', function() {
-        if (!this.value) {
-            this.parentElement.classList.remove('focused');
-        }
-    });
-});
-
-// Add CSS animations dynamically
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    .notification {
-        position: fixed;
-        top: 100px;
-        right: 20px;
-        background: white;
-        border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        z-index: 10000;
-        transform: translateX(400px);
-        transition: all 0.3s ease;
-        max-width: 400px;
-        border-left: 4px solid #667eea;
-    }
-    
-    .notification.show {
-        transform: translateX(0);
-    }
-    
-    .notification-success {
-        border-left-color: #4ade80;
-    }
-    
-    .notification-error {
-        border-left-color: #ef4444;
-    }
-    
-    .notification-warning {
-        border-left-color: #f59e0b;
-    }
-    
-    .notification-content {
-        padding: 1rem 1.5rem;
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-    }
-    
-    .notification-content i:first-child {
-        font-size: 1.2rem;
-    }
-    
-    .notification-success .notification-content i:first-child {
-        color: #4ade80;
-    }
-    
-    .notification-error .notification-content i:first-child {
-        color: #ef4444;
-    }
-    
-    .notification-warning .notification-content i:first-child {
-        color: #f59e0b;
-    }
-    
-    .notification-content span {
-        flex: 1;
-        font-size: 0.9rem;
-        color: #333;
-    }
-    
-    .notification-close {
-        background: none;
-        border: none;
-        cursor: pointer;
-        color: #999;
-        font-size: 0.9rem;
-        padding: 0.25rem;
-        border-radius: 4px;
-        transition: all 0.2s ease;
-    }
-    
-    .notification-close:hover {
-        background: #f5f5f5;
-        color: #666;
-    }
-    
-    .input-group.focused i {
-        color: #667eea;
-        transform: scale(1.1);
-    }
-    
-    .feature-card {
-        opacity: 0;
-    }
-`;
-document.head.appendChild(style);

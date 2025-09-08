@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Timetable - TimeTable Pro</title>
+    <link rel="stylesheet" href="selection.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-calendar-alt"></i>
+                <span>TimeTable Pro</span>
+            </div>
+            <div class="user-info">
+                <span>Welcome Boss</span>
+                <a href="index.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="title-section">
+                <h1>Create New Timetable</h1>
+            </div>
+
+            <div class="selection-container">
+                <!-- Left Side - Start with Blank -->
+                <div class="left-section" onclick="startWithBlank()">
+                    <div class="section-content">
+                        <div class="section-icon">
+                            <i class="fas fa-plus-circle"></i>
+                        </div>
+                        <h2>Start with Blank</h2>
+                        <p>Create a new TT</p>
+                        <button class="section-btn">
+                            <i class="fas fa-arrow-right"></i>
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Side - Import Excel File -->
+                <div class="right-section" onclick="showImportModal()">
+                    <div class="section-content">
+                        <div class="section-icon">
+                            <i class="fas fa-file-excel"></i>
+                        </div>
+                        <h2>Import Excel File</h2>
+                        <p>Upload your existing timetable data from an Excel spreadsheet</p>
+                        
+                        <button class="section-btn">
+                            <i class="fas fa-upload"></i>
+                            Import File
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Import Options Modal -->
+            <div class="modal-overlay" id="importModal">
+                <div class="modal">
+                    <div class="modal-header">
+                        <h3>Import Excel File</h3>
+                        <button class="close-btn" onclick="closeImportModal()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-content">
+                        <div class="upload-section">
+                            <h4>Upload Your Excel File</h4>
+                            <div class="file-upload-area" onclick="document.getElementById('fileInput').click()">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Click to browse or drag and drop your Excel file here</p>
+                                <span class="file-info">Supported formats: .xlsx, .xls (Max 10MB)</span>
+                            </div>
+                            <input type="file" id="fileInput" accept=".xlsx,.xls" style="display: none;" onchange="handleFileUpload(this)">
+                            
+                            <div class="selected-file" id="selectedFile" style="display: none;">
+                                <i class="fas fa-file-excel"></i>
+                                <span class="file-name"></span>
+                                <button type="button" onclick="clearFile()" class="remove-file">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="modal-actions">
+                            <button class="btn-secondary" onclick="closeImportModal()">Cancel</button>
+                            <button class="btn-primary" id="importBtn" disabled onclick="processImport()">
+                                <i class="fas fa-upload"></i>
+                                Import File
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="selection.js"></script>
+</body>
+</html>
