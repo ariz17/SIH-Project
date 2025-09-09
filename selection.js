@@ -1,8 +1,8 @@
 // Selection page functionality
 
-// Navigate to timetable builder
+// Navigate to dashboard
 function startWithBlank() {
-    window.location.href = 'timetable-builder.html';
+    window.location.href = 'dashboard.html';
 }
 
 // Show import modal
