@@ -65,7 +65,8 @@ loginForm.addEventListener('submit', (e) => {
     // Simulate authentication (replace with actual API call)
     setTimeout(() => {
         // Demo credentials for testing
-        if (username === 'admin' && password === 'admin123') {
+        if ((username === 'admin' && password === 'admin123') || 
+            (username === 'Parag Tonger' && password === 'paragwho')) {
             showNotification('Login successful! Redirecting to dashboard...', 'success');
             
             // Save remember me preference
